@@ -9,32 +9,27 @@ from PyQt5.QtGui import QFont
 class FontColorAdjuster(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Font Size and Color Adjuster")
+        self.setWindowTitle("Tugas Week 6")
         self.setGeometry(100, 100, 600, 300)
         self.setStyleSheet("background-color: #2e2e2e;")  # dark mode
         self.initUI()
 
     def initUI(self):
-        # --- Label utama ---
         self.label = QLabel("F1D022055", self)
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setFont(QFont("Arial", 30))
         self.label.setStyleSheet("background-color: rgb(200,200,200); color: rgb(0,0,0);")
 
-        # --- Slider Font Size ---
-        self.fontSizeSlider = self._makeSlider(10, 100, 30, 5)
+        self.fontSizeSlider = self._makeSlider(20, 60, 30, 2)
 
-        # --- Slider Background Color ---
         self.bgColorSlider = self._makeSlider(0, 255, 200, 15)
 
-        # --- Slider Font Color ---
         self.fontColorSlider = self._makeSlider(0, 255, 0, 15)
 
         self.fontSizeSlider.valueChanged.connect(self.changeFontSize)
         self.bgColorSlider.valueChanged.connect(self.updateLabelStyle)
         self.fontColorSlider.valueChanged.connect(self.updateLabelStyle)
 
-        # --- Layout dengan label di kiri ---
         layout = QVBoxLayout()
 
         layout.addWidget(self.label)
